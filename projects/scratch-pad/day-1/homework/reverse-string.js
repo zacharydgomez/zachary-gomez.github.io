@@ -21,7 +21,16 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
+    //creating a variable to collect the output
+    var tupni = ""
+    //creating a descending for loop
+    // using i to access the individual characters of the string in reverse order
+     for (var i = input.length - 1; i >=0; i--) {
+      //concatenating strings with the += operator
+      tupni +=input[i];
+    }
+    return tupni;
+
     
     
     
