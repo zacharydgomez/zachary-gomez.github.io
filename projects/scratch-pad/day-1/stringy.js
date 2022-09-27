@@ -83,10 +83,17 @@ return newstr.toLowerCase();
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
+
+/*
+I:
+O:
+C:
+E:
+*/
 function beginsWith(string, char) { //must be case insensitive
     // YOUR CODE BELOW HERE //
 
-    
+   return console.log(string.toLowerCase().startsWith(char.toLowerCase))
 
     // YOUR CODE ABOVE HERE //
 }
@@ -118,8 +125,10 @@ function endsWith(string, char) { //must be case inscensitive
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+// defining a variable by concatenating two parameters
+var conc = stringOne + stringTwo;
+//returning the variable
+return conc
 
     // YOUR CODE ABOVE HERE //
 }
@@ -137,6 +146,7 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
+console.log(args.join());
 
 
     // YOUR CODE ABOVE HERE //
@@ -153,8 +163,10 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+ //using an if statement to compare the lengths of the two inputs
+if (stringOne.length > stringTwo.length){return console.log(stringOne)}
+//using else if to return the second string if false
+else if (stringOne.length < stringTwo.length) {return console.log(stringTwo)};
 
     // YOUR CODE ABOVE HERE //
 }
