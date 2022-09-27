@@ -18,7 +18,7 @@ function length(string) {
     return string.length;
 
 
-    // YOUR CODE ABOVE HERE //
+    // YOUR CODE ABOVE HERE //iven an input String, return a new String forced to dash-case.
 }
 
 /**
@@ -26,8 +26,10 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+    //creating a variable for the copy of string
+var clone
+//using the .toLowerCase()  to set the parameter to lowecase
+return clone = string.toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -37,14 +39,17 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+ //creating a variable for the copy of string
+ var copy
+ // using .toUpperCase() to set the parameter to uppercase
+ return copy = string.toUpperCase();
 
 
     // YOUR CODE ABOVE HERE //
 }
 
 /**
- * Given an input String, return a new String forced to dash-case.
+ * G
  *
  * Examples:
  *
@@ -58,8 +63,10 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+    //using .replace with a global flag to replace each space with a dash
+var newstr = string.replace(/ /g, "-");
+//making the output lowercase with .toLowerCase
+return newstr.toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
