@@ -92,8 +92,10 @@ E:
 */
 function beginsWith(string, char) { //must be case insensitive
     // YOUR CODE BELOW HERE //
-
-   return console.log(string.toLowerCase().startsWith(char.toLowerCase))
+// using .toLowerCase on both parameters to make the function ignore case
+//usinging .startsWith to do a boolean check on if the statment is correct
+// checks to see if the first letter of string and the value of char are the
+   return string.toLowerCase().startsWith(char.toLowerCase());
 
     // YOUR CODE ABOVE HERE //
 }
@@ -112,7 +114,9 @@ function beginsWith(string, char) { //must be case insensitive
  */
 function endsWith(string, char) { //must be case inscensitive
     // YOUR CODE BELOW HERE //
-
+    // using.toLowerCase on both paramters to make the function ignore case
+    //using .endsWiith to do a boolean check on if the statement is correct
+    return string.toLowerCase().endsWith(char.toLowerCase());
 
 
     // YOUR CODE ABOVE HERE //
@@ -146,7 +150,8 @@ return conc
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-console.log(args.join());
+    //using .join to concat all of the strings from the array
+    return args.join("");
 
 
     // YOUR CODE ABOVE HERE //
@@ -164,9 +169,9 @@ console.log(args.join());
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
  //using an if statement to compare the lengths of the two inputs
-if (stringOne.length > stringTwo.length){return console.log(stringOne)}
+if (stringOne.length > stringTwo.length){return stringOne}
 //using else if to return the second string if false
-else if (stringOne.length < stringTwo.length) {return console.log(stringTwo)};
+else if (stringOne.length < stringTwo.length) {return stringTwo}
 
     // YOUR CODE ABOVE HERE //
 }
@@ -180,7 +185,11 @@ else if (stringOne.length < stringTwo.length) {return console.log(stringTwo)};
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    //using an if/else if statement to compare strings
+    
+if (stringOne > stringTwo){ return -1}
+else if (stringOne < stringTwo){return 1}
+else if (stringOne === stringTwo){return 0}
 
 
     // YOUR CODE ABOVE HERE //
@@ -196,7 +205,13 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    //using an if/else if statement to compare strings
+if(stringOne > stringTwo){
+    return 1}
+    else if (stringOne < stringTwo){
+        return -1
+    }
+    else if (stringOne === stringTwo){return 0}
 
 
 
