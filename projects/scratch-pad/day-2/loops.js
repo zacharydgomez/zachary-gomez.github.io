@@ -12,7 +12,10 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
+  // creating a for loop to iterate through the array
+  for(var i = 0; i < array.length; i++){
+    //logging the indexs of the array
+    console.log(array[i])}
   
   
   
@@ -34,10 +37,20 @@ function printArrayValuesInReverse(array) {
 
 /** 
  * Given an input Object, return an Array containing the Object keys.
- */
-function getObjectKeys(object) {
+ * ex. getobjectkeys ({name: alex , age 35}) => name age*/
+function getObjectKeys(object) { 
   // YOUR CODE BELOW HERE //
-  
+  //creat output array
+  var keys = [];
+
+  //iterate through object using for in loop
+  for (var key in object){
+    //push current key into keys array
+    keys.push(key);
+  }
+
+  //return output array
+  return keys;
   
   
   
@@ -101,7 +114,11 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  // push objexct values into an array
+
+  //loop over the array backwards and print each value
+
+
   
   
   // YOUR CODE ABOVE HERE //
