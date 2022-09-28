@@ -28,7 +28,10 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
+  //setting i to the array length-1, making the for loop subtract one til hitting 0
+  for (var i = array.length-1; i >= 0; i--){
+    //logging the index to console
+    console.log(array[i])}
   
   
   
@@ -63,7 +66,10 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
+  //for in loop 
+  for (var key in object){
+    //logging the result of key and object[key]
+    console.log(key, object[key])};
   
   
   
@@ -75,10 +81,15 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  //creating an empty array
+  var objects = []
+  //for in loop to iterate over the keys of an object
+  for (var key in object){
+    //push current keys into array
+    objects.push(object[key])
+  }
+  //returnign array
+  return objects
   // YOUR CODE ABOVE HERE //
 }
 
@@ -88,7 +99,11 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  //for loop to iterate the keys
+  for (var key in object){
+    //using bracket notation to call the objects
+    console.log(object[key])
+  }
   
   
   
@@ -100,8 +115,15 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  //creating empty array
+   var objects = []
+   //using a for in statement to iterate over object
+  for (var key in object){
+    //pushing current keys into an array
+   objects.push(object[key])
+  }
+  //using .length to find the length
+  return objects.length
   
   
   // YOUR CODE ABOVE HERE //
@@ -113,9 +135,15 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
-  // push objexct values into an array
+  var objects = []
 
+  // push objexct values into an array
+for (var key in object){
+  objects.push(object[key])
+}
+for ( var i = objects.length -1; i > 0;i--){
+  console.log (objects[i]);
+}
   //loop over the array backwards and print each value
 
 
