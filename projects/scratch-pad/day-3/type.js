@@ -32,7 +32,8 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    // determine if typeof value is objexct and value is not an array and value is not null
+    // and value is not an instance of the date object (google how to see if something is insrtance of date )
     
     
     // YOUR CODE ABOVE HERE //

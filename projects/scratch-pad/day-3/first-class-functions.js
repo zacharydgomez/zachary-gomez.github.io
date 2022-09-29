@@ -14,7 +14,10 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+   //return a function that tests whether a vlue is greater than the base parameter
+    return function(value){
+        return value > base;
+    } 
     
     
     // YOUR CODE ABOVE HERE //
@@ -27,8 +30,10 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //return a function that ests whether a value is less than the base parameter
+    return function(value){
+        return value < base;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,9 +46,12 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+    //return true if the string starts with the startswith character
     
-    
-    
+    return function(string){
+        //using the tolowercase to ignore case
+        return string.toLowerCase().startsWith(startsWith.toLowerCase());
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -56,7 +64,10 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(string){
+        //return true if the string ends with the endsWith character
+        return string.toLowerCase().endsWith(endsWith.toLowerCase());
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -69,7 +80,7 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { //modify is a function that will modifyu a single string
     // YOUR CODE BELOW HERE //
     
     
@@ -87,7 +98,7 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
+function allStringsPass(strings, test) { //test is a funtion that will test a single string
     // YOUR CODE BELOW HERE //
     
     
