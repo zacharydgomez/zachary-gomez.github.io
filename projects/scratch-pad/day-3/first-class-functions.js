@@ -82,7 +82,9 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) { //modify is a function that will modifyu a single string
     // YOUR CODE BELOW HERE //
+    var col = [];
     
+
     
     
     
