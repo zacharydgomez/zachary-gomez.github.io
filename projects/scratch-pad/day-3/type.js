@@ -36,7 +36,7 @@ function isObject(value) {
     // determine if typeof value is objexct and value is not an array and value is not null
  // checking to see if the value is an array
     return  !Array.isArray(value) &&
-    // checking to see if the value is an instanceof Datte
+    // checking to see if the value is an instanceof Date
      !(value instanceof Date) && 
      // checking to see if value is null
       null !== value &&
@@ -58,10 +58,8 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    return  Array.isArray(value) &&
-    // checking to see if the value is an instanceof Datte
-     !(value instanceof Date) && 
+    // checking if value is an instance of Date
+    return  !(value instanceof Date) && 
      // checking to see if value is null
       null !== value &&
       //checking if the value type of is "object"
@@ -93,8 +91,15 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //using a conditional statement
+    // first to determine if it is an array
+    if (Array.isArray(value)){return "array"}
+    // next to determine if it is null
+    else if (value === null){return "null"}
+    // next to determine if it is Date
+    else if(value instanceof Date){return "date"}
+    // else statement for the rest of the value types
+    else{return typeof value}
     
     
     // YOUR CODE ABOVE HERE //
