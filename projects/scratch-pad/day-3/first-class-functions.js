@@ -83,7 +83,18 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) { //modify is a function that will modifyu a single string
     // YOUR CODE BELOW HERE //
     var col = [];
+    for (var i = 0; i <= strings.length; i++){ 
+        col.push(strings[i]);
+        modify(col[i]);
+    }
+    return col;
     
+    
+    
+    
+
+    
+
 
     
     
