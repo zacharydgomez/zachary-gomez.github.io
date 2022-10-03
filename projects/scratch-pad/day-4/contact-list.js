@@ -35,9 +35,12 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-var obj= {}
-return obj
-} 
+    return{
+        id : id,
+        nameFirst : nameFirst,
+        nameLast : nameLast,
+        
+        } }
 
 
 function makeContactList() { //factory function
