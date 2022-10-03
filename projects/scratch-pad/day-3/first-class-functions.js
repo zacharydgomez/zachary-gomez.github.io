@@ -117,11 +117,14 @@ function modifyStrings(strings, modify) { //modify is a function that will modif
  */
 function allStringsPass(strings, test) { //test is a funtion that will test a single string
     // YOUR CODE BELOW HERE //
-    var col = [];
+    //loop to get the index of strings
     for (var i = 0; i < strings.length; i++){
-        col.push(test(strings[i]));
-    }
-    return col;
+        //if statement to return the boolean result
+      if (test(strings[i]) === false) {return false
+    }  }
+    //return true if not false
+    return true;
+   
     
     
     
