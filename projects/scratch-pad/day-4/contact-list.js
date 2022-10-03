@@ -35,13 +35,13 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-//var obj= {}
-
-//return obj
+var obj= {}
+return obj
 } 
 
 
 function makeContactList() { //factory function
+    
     /*
      * You need something here to hold contacts. See length api for a hint:
      */

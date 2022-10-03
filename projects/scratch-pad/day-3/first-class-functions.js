@@ -82,11 +82,15 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) { //modify is a function that will modifyu a single string
     // YOUR CODE BELOW HERE //
-    var col = [];
-    for (var i = 0; i <= strings.length; i++){ 
-        col.push(strings[i]);
-        modify(col[i]);
+    // an empty array to store the value in
+    var col =[];
+    //for loop to index strings
+    for (var i = 0; i < strings.length; i++){ 
+        //passing a function as an argument applying modify to each value in the col parameter.
+        col.push(modify(strings[i]));
+        
     }
+  
     return col;
     
     
@@ -113,7 +117,11 @@ function modifyStrings(strings, modify) { //modify is a function that will modif
  */
 function allStringsPass(strings, test) { //test is a funtion that will test a single string
     // YOUR CODE BELOW HERE //
-    
+    var col = [];
+    for (var i = 0; i < strings.length; i++){
+        col.push(test(strings[i]));
+    }
+    return col;
     
     
     
