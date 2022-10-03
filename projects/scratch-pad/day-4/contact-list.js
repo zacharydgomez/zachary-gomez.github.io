@@ -83,16 +83,16 @@ function makeContactList(id, nameFirst, nameLast) { //factory function
         },
         printAllContactNames: function(){
             // empty var named bigName to hold the values
-            var bigName = "";
-            //create loop to iterate through contacts
-           for (var i = 0; i < contacts.length - 1; i++){
-             //assign the nameFirst and the nameLast value for each iteration \n breaks the lines
-            bigName += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";  
-           }
-           // assigns a value for the last contact
-           bigName += contacts[contacts.length - 1].nameFirst + " " + contacts[contacts.length - 1].nameLast;
-           
-           return bigName;
+            var bigName = [];
+            //for loop to get the index of contacts
+            for (var i = 0; i < contacts.length; i++){
+                //creating a variable "name" and having it hold the contacts strings of nameFirst and nameLast
+                var name = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                // using .push to change the value to the value of "name"
+                bigName.push(name);
+            }
+            // using .join with "\n" as a linebreak
+            return bigName.join("\n");
         }
     };}
         
