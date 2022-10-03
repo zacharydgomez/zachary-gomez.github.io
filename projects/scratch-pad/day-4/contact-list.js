@@ -35,12 +35,14 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-return{
+var contact ={
 id,
 nameFirst,
 nameLast,
 
-} }
+} 
+return contact
+}
 
 
 function makeContactList(id, nameFirst, nameLast) { //factory function
@@ -51,33 +53,46 @@ function makeContactList(id, nameFirst, nameLast) { //factory function
     var contacts = [];
     
     return  {
- id,
-nameFirst,
-nameLast,
-
+ 
         
         // we implemented the length api for you //
-        length: function() { return contacts.length 
+        length: function() { 
+            return contacts.length 
         },
-        addContact: function(contact){return contacts.push(contact)},
+        // add contact function
+        //uses .push to ass a contact object
+        addContact: function(contact){
+            return contacts.push(contact)},
+        //find contact
         findContact: function(fullName){
+            //gets the index of the contacts array
             for(var i = 0; i < contacts.length; i++){
-                if(fullName === contacts[i]["nameFirst"] + " "+ contacts[i]["nameLast"]){return contacts[i];}
+// if the fullName is found  by concating the nameFirst and the nameLast it will return the name
+                if(fullName === contacts[i]["nameFirst"] + " "+ contacts[i]["nameLast"]){
+                    return contacts[i];}
             }
         },
+        // removeContact function
         removeContact: function(contact){
             for(var i = 0; i < contacts.length; i++){
                 if (contacts[i] === contact) {
+                    //using .splice to remove values from contact list
                     return contacts.splice(i,1);
                 }
             }
         },
-        printAllContactNames: function(fullName){
-           for (var i = 0; i < contacts.length; i++){
-             return contacts[i]["nameFirst"] + " "+ contacts[i]["nameLast"] + "\n"
-              
-             
+        printAllContactNames: function(){
+            // empty var named bigName to hold the values
+            var bigName = "";
+            //create loop to iterate through contacts
+           for (var i = 0; i < contacts.length - 1; i++){
+             //assign the nameFirst and the nameLast value for each iteration \n breaks the lines
+            bigName += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";  
            }
+           // assigns a value for the last contact
+           bigName += contacts[contacts.length - 1].nameFirst + " " + contacts[contacts.length - 1].nameLast;
+           
+           return bigName;
         }
     };}
         
