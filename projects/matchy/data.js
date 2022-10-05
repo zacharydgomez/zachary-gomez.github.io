@@ -11,20 +11,32 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animal = {}
+animal.species = "hummingbird"
+animal["name"] = "Jose"
+animal.noises = [];
+console.log(animal);
 
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+var noises = [];
+noises[0] = "buzz"
+noises.splice(1, 1, "swoosh")
+noises.push("hum")
+noises[noises.length] = "caw"
+console.log(noises.length)
+console.log(noises.slice(-1))
+console.log(noises)
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
+animal["noises"] = noises
+animal.noises.push("flap")
 
 /* *******************************************************************
  * Step 4 - Review
@@ -48,15 +60,33 @@
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
+var animals = [];
+animals.push(animal)
+console.log(animals)
+var duck = {species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh']}
+animals.push(duck)
+console.log(animals)
+var snake = {species: "snake", name: 'Sally', noises: ['hiss', 'slide', 'rattle', 'gulp']}
+animals.push(snake)
+var goat = {species: 'goat', name: 'Billy', noises: ['bleet', 'bawww', 'yawn', 'clash']}
+animals.push(goat)
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+ // For choosing a list of friends I chose an array because it can hold an index list and keys seem unnessary
+ var friends = [];
+ function getRandom(animals){
+  min = Math.ceil(0);
+ max = (animals.length - 1)
+   
+   return Math.floor(Math.random() * (max - min + 1) + min)}
+ 
+   friends[0] = animals[getRandom(animals)]["name"]
 
-
-
+console.log(friends)
+animals[0]["friends"] = friends
+console.log(animals)
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
