@@ -38,7 +38,7 @@
 
     /* global valuesToString */
     QUnit.test("valuesToString() : Should take an object and return all its string values in a string each separated with a space", function(assert){
-      var objectOne = {a: "one", b: "two", ponies: "crayons", something: {}, dingle: "dangle"};
+     var objectOne = {a: "one", b: "two", ponies: "crayons", something: {}, dingle: "dangle"};
       var objectTwo = {c: "three", boolean: false, d: "four", crayons: "ponies", dangle: "dingle"};
       assert.equal(valuesToString(objectOne), "one two crayons dangle");
       assert.equal(valuesToString(objectTwo), "three four ponies dingle");

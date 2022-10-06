@@ -2,8 +2,10 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
+const { split, sortedIndex } = require("lodash");
 
+function objectValues(object) {
+  return  Object.values(object)
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +13,8 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+  let x = Object.keys(object)
+  return x.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +22,14 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+  for (let key in object){
+    let x = object[key];
+    for( let i = 0; i < x.length - 1; i++){
+    if (typeof x[i] === "string"){
+        return x[i].join(" ")
+    }
+}
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +37,9 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)){return "array"}
+    else{return "object"}
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +47,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+  return string.charAt(0).toUpperCase() + string.slice(1) 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +55,11 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+ let x = string.split(" ")
+ for (let i = 0; i < x.length; i++){
+   x[i] = x[i][0].toUpperCase()+x[i].substr(1)
+ }
+return x.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +67,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+for (let key in object){
+    let x = object[key]
+    let y = x.charAt(0).toUpperCase() + x.slice(1)
+    return  "Welcome" +" "+ y +"!"
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,8 +79,12 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    let x = Object.values(object)
+    let y = x[0].charAt(0).toUpperCase() + x[0].slice(1)
+    let yy = x[1].charAt(0).toUpperCase() + x[1].slice(1)
+        return y + " "+ "is a" + " " + yy
+    }
 
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
