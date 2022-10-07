@@ -34,7 +34,10 @@ return no
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function replace(arr, str, obj){
+    // a loop to iterate over the array
     for(let i = 0; i < arr.length -1;i++){
+        // if condition where if an object in the array has the
+        // same value as the string it will replace the object with the replacement object
         if(str === arr[i].name){
             arr[i] = obj
             
@@ -47,9 +50,13 @@ function replace(arr, str, obj){
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function remove(animals, name){
-    for(let i = 0; i < animals.length -1;i++){
-    if (name === animals[i].name ){animals.splice(i)
+function remove(arrAnimals, animalname){
+    //loop to iterate over the arrAnimals array
+    for(let i = 0; i < arrAnimals.length -1;i++){
+        //if statement to check if animalname's value exsist within the arrAnimals array
+    if (animalname === arrAnimals[i].name ){
+        //splices the array to remove it from the 
+        arrAnimals.splice(i, 1)
     }
 }
 }
@@ -58,13 +65,32 @@ function remove(animals, name){
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
- function add(arr, obj){
-     let x = obj.name.length
-     let y = obj.species.length
-    
-     for(let i = 0; i < arr.length -1;i++){
- if ((x > 0) && (y > 0) && (arr[i] !== obj.name)){
-     arr.push(obj)}
+ function add(animals, animal){
+    // made a function name check to test if an animals name is already within the array 
+     function check(arr){
+        //for loop to iterate over the array
+        for (var i = 0; i <arr.length; i++){
+            //conditional to make the function return true if the 
+            //new name is already within the array
+        if(arr[i].name === animal.name){
+            return true}
+     }
+    }
+    // for loop to iterate over the array
+     for(let i = 0; i < animals.length -1;i++){
+        //big conditional statement to check a few different relationships
+        // checks to see if the function is false, if it is it moves on
+        //to the next step in the conditional
+ if (check(animals) !== true &&
+ //checks the length of name and species to make sure it is greater than 0
+    animal.name.length > 0 &&
+     animal.species.length > 0 && 
+     //makes sure the name is not already in the animals index
+     animals[i].name !== animal.name
+     
+     && animals.includes(animal) === false){
+     animals.push(animal);
+    }
  }
    
  }
