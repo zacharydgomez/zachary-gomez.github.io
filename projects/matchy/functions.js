@@ -58,16 +58,16 @@ function remove(animals, name){
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function add(arr, obj){
-    let x = obj.name.length
-    let y = obj.species.length
+ function add(arr, obj){
+     let x = obj.name.length
+     let y = obj.species.length
     
-    for(let i = 0; i < arr.length -1;i++){
-if (x > 0 && y > 0 && arr[i]["name"] !== obj.name ){
-    arr.push(obj)}
-}
+     for(let i = 0; i < arr.length -1;i++){
+ if ((x > 0) && (y > 0) && (arr[i] !== obj.name)){
+     arr.push(obj)}
+ }
    
-}
+ }
 
 
 /**

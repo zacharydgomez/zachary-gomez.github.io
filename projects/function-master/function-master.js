@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { split, sortedIndex } = require("lodash");
+const { split, sortedIndex, some } = require("lodash");
 
 function objectValues(object) {
   return  Object.values(object)
@@ -122,15 +122,24 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+if(object.hasOwnProperty('friends')=== false){
+  return false;}
+else if(object.friends.includes(name)){
+  return true;}
+else{return false;}
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+let x = []
+for (let i = 0; i < array.length; i++){
+  if(name !==array[i].name && array[i].friends.includes(name)==false){
+    x.push(array[i].name)
+  }
+}
+return x
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -146,6 +155,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+ for(let key in object){
+ for(let i = 0; i <array.length;i++){
+  if(array[i] === key){delete object[key]}
+ }
+ }
+
 
 }
 
@@ -154,7 +169,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+  x = [... new Set(array)]
+  return x
 }
 
 //////////////////////////////////////////////////////////////////////
