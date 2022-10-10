@@ -84,11 +84,11 @@ function remove(arrAnimals, animalname){
  if (check(animals) !== true &&
  //checks the length of name and species to make sure it is greater than 0
     animal.name.length > 0 &&
-     animal.species.length > 0 && 
-     //makes sure the name is not already in the animals index
-     animals[i].name !== animal.name
+     animal.species.length > 0 
      
-     && animals.includes(animal) === false){
+     
+){
+    //pushes the infor
      animals.push(animal);
     }
  }

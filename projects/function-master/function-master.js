@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { split, sortedIndex, some } = require("lodash");
+//const { split, sortedIndex, some } = require("lodash");
 
 function objectValues(object) {
   return  Object.values(object)
@@ -22,15 +22,17 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+ let x = [];
+ let y = "";
   for (let key in object){
-    let x = object[key];
-    for( let i = 0; i < x.length - 1; i++){
-    if (typeof x[i] === "string"){
-        return x[i].join(" ")
+    
+    if (typeof object[key] === "string"){
+        x.push(object[key]);
     }
 }
+return y = x.join(" ")
   }
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
@@ -147,9 +149,13 @@ return x
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+  if(object.hasOwnProperty(key) === Object.keys(object)){
+    return object[key]
+  } else {
+    object[key] = value;
+  }
+  return object
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
