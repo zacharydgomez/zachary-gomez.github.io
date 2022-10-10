@@ -75,15 +75,19 @@ animals.push(goat)
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
  // For choosing a list of friends I chose an array because it can hold an index list and keys seem unnessary
+ // binding friends to an empty array
  var friends = [];
+ // calling a function named getRandom() with a single parameter
  function getRandom(animals){
+  // setting the min value to 0
   min = Math.ceil(0);
+  // setting the max value to animals.length -1
  max = (animals.length - 1)
-   
+   //using Math.random() to get a random number
    return Math.floor(Math.random() * (max - min + 1) + min)}
- 
+ // assiging the random index number on animals to friends array
    friends[0] = animals[getRandom(animals)]["name"]
-
+// checkking work
 console.log(friends)
 animals[0]["friends"] = friends
 console.log(animals)
