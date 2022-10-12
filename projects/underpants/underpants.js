@@ -20,6 +20,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 _.identity = function(value){
+    // returns value
     return value
 }
 
@@ -45,7 +46,14 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
-
+_.typeOf = function(value){
+    // if statement to return if null
+    if (value === null){ return "null"}
+    //else if  using array.isArray to return array
+    else if (Array.isArray(value)){ return "array"}
+    // return typeof value otherwise
+    else {return typeof value}
+}
 
 
 /** _.first
@@ -65,8 +73,21 @@ _.identity = function(value){
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
-
+_.first = function(array, number){
+    // checks the truthyness of array being an array or if number is  greater than 0
+    if( !Array.isArray(array) || number <0){
+        //returns an empty array if so
+        return [];
+    }
+    // if statement using isNan method on number to check if it is nan, or if number is undefined 
+      if (isNaN(number) || number === undefined ){
+        //returns the first index of the array
+        return array[0];
+        
+      } else {
+        // returns the array with the .slice method
+        return array.slice(0, number)}
+      }
 /** _.last
 * Arguments:
 *   1) An array
@@ -84,7 +105,24 @@ _.identity = function(value){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function(array, number){
+ // if statement to check if it is an array or if the number is greater than 0
+    if( !Array.isArray(array) || number <0){
+        //returns empty array if so
+        return [];
+    }
+    // if numbmer is nan or if number is undefined
+      if (isNaN(number) || number === undefined ){
+        // returns the last index of an array
+        return array[array.length - 1];}
+        // if number is greater than the array length it returns array
+        if (number > array.length){
+            return array}
+       else {
+        // else returns a slice of the array 
+        return array.slice(array.length - number)}
+      
+}
 
 /** _.indexOf
 * Arguments:
@@ -102,7 +140,16 @@ _.identity = function(value){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-
+_.indexOf = function(array, value){
+    //iterating over the array
+    for (let i =0; i < array.length; i++){
+        // if the value is found in array return that index
+        if (array[i]=== value){return i}
+        
+    }
+    //return -1 if the if statement returns false
+    return -1
+}
 /** _.contains
 * Arguments:
 *   1) An array
@@ -117,6 +164,17 @@ _.identity = function(value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+_.contains = function(array, value){
+    // using a ternary operator in my code
+    // using the .includes method to check for value
+    let result = array.includes(value) ? true:false
+    //returning the result
+    return result
+    
+      
+      
+
+    }
 
 
 /** _.each
@@ -163,7 +221,19 @@ for(let key in collection){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-
+_.unique = function(array){
+    //empty array to store the result in
+    let result = [];
+    //for loop to iterate through the array
+    for (let i = 0; i < array.length; i++){
+        // conditional statement saying if  the index === the result of the .indexOf function push the array[i] into result
+        if( i === _.indexOf(array, array[i])){
+            result.push(array[i]);
+        }
+    }
+    //return result
+    return result
+}
 
 /** _.filter
 * Arguments:
