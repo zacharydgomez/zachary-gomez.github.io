@@ -19,7 +19,9 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = function(value){
+    return value
+}
 
 
 // console.log(_) = {identiy: function(){}}
@@ -263,7 +265,40 @@ for(let key in collection){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(collection , func){
+    //determine if func is not provided
+    if( func === undefined){
+        //determine if collection is array
+        if(Array.isArray(collection)){
+            for (let i = 0; i < collection.length; i++){
+                if(!collection[i]){
+                    return false
+                }
+            }
+        } else{ 
+            for (let key in collection){
+            if(!collection[key]){
+                return false;
+            }
+        }
+        }
+        } else {
+            if (Array.isArray(collection)){
+                for (let i = 0; i <collection.length; i++){
+                    if (func(collection[i], i, collection)=== false){
+                        return false;
+                    }
+                }
+            } else {
+                for (let key in collection){
+                    if (func(collection[key], key, collection)=== false){
+                        return false;
+                    }
+                }
+            }
+        }
+ return true;
+}
 
 /** _.some
 * Arguments:
