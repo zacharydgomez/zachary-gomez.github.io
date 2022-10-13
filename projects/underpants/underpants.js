@@ -464,7 +464,22 @@ _.every = function(collection , func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
+_.some = function(collection, func){
+    // binding a variable and assiging it to false
+    let bool = false
+    // using the _.each method to see if atleast one is true
+ _.each(collection, function(x, y, collection){
+    if (typeof func !== "function"){
+        if(x){ bool = true;
+        }
+    }
+    else if (func(x,y, collection)){
+        bool = true
+    }
+ }
+ );
+ return bool
+}
 
 /** _.reduce
 * Arguments:
@@ -520,9 +535,15 @@ _.reduce = function(array, func, seed ){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-// _.extend = function(obj1, obj2, ...objEct){
+// using spread syntex to indicate any amount of objects in the parameter
+ _.extend = function( ...objEct){
+    // using Object.assign method to copy all enumerable own properties from the objects to obj1
+    const obj1 = Object.assign(...objEct)
+    // returning obj1
+    return obj1
     
-// }
+    
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
