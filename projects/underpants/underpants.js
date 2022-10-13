@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { result } = require("lodash");
+
 var _ = {};  
 
 /**
@@ -251,9 +253,11 @@ _.unique = function(array){
 *   use _.each in your implementation
 */
 _.filter = function(array, func ){
+    // empty array for the output
     let output= []
-
+// iterating through the array
         for(let i = 0; i <array.length;i++){
+            // if statement 
 if (func(array[i], i, array) === true){
             
             output.push(array[i]);
@@ -276,10 +280,11 @@ if (func(array[i], i, array) === true){
 */
 _.reject = function(array, func ){
     let output= []
-
+// iterate through loop
         for(let i = 0; i <array.length;i++){
+            // check for a false statement
 if (func(array[i], i, array) === false){
-            
+            // pushes the false results
             output.push(array[i]);
         }}
 
@@ -304,7 +309,19 @@ if (func(array[i], i, array) === false){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(array, func){
+    //empty array
+    let result = []
+    // check true with .filter
+    let tru = _.filter(array,func)
+    // check false with .reject
+    let fals = _.reject(array, func) 
+    // pushing the results with bracket notation
+    result[0] = tru
+    result[1] = fals
+// reutrning result
+    return result
+}
 
 /** _.map
 * Arguments:
@@ -321,7 +338,34 @@ if (func(array[i], i, array) === false){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+_.map = function(collection, func){
+    //empty value to store result
+    let value = []
+    //checking if array is array
+    if(Array.isArray(collection)){
+        //iterate through the array
+        for (let i = 0; i < collection.length; i++){
+            // binding x to the function call
+          let x = func(collection[i], i, collection)
+          //pushing x to value
+          value.push(x)
+        }
 
+
+    }
+    // else check if the collection is object
+    else if (_.typeOf(collection) === "object"){
+        // for in loop for an object
+        for (let key in collection){
+            // binding y to the function call iterating through the keys
+let y = func(collection[key], key, collection)
+// pushing y onto value
+      value.push(y)  }
+
+    }
+    // returning value
+return value
+}
 
 /** _.pluck
 * Arguments:
@@ -333,11 +377,17 @@ if (func(array[i], i, array) === false){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-// _pluck = function(array, prop){
-//     return _.map(array, func){
-//         return i[prop];
-//     }
-// }
+ _.pluck = function(array, prop){
+   
+    let x = _.map(array, function(i){
+    return i[prop]
+   })
+        
+     
+     return x
+ }
+
+
 
 /** _.every
 * Arguments:
@@ -470,7 +520,9 @@ _.reduce = function(array, func, seed ){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+// _.extend = function(obj1, obj2, ...objEct){
+    
+// }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
