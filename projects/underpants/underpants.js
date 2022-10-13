@@ -250,7 +250,17 @@ _.unique = function(array){
 * Extra Credit:
 *   use _.each in your implementation
 */
+_.filter = function(array, func ){
+    let output= []
 
+        for(let i = 0; i <array.length;i++){
+if (func(array[i], i, array) === true){
+            
+            output.push(array[i]);
+        }}
+
+    return output
+}
 
 /** _.reject
 * Arguments:
@@ -264,7 +274,17 @@ _.unique = function(array){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+_.reject = function(array, func ){
+    let output= []
 
+        for(let i = 0; i <array.length;i++){
+if (func(array[i], i, array) === false){
+            
+            output.push(array[i]);
+        }}
+
+    return output
+}
 
 /** _.partition
 * Arguments:
@@ -313,7 +333,11 @@ _.unique = function(array){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+// _pluck = function(array, prop){
+//     return _.map(array, func){
+//         return i[prop];
+//     }
+// }
 
 /** _.every
 * Arguments:
@@ -410,9 +434,29 @@ _.every = function(collection , func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = function(array, func, seed ){
+    let result;
+    // determine if seed didnt receive a value
+    if( seed === undefined){
+        result = array[0]
+        //iteratre through array at 1 index
+        for (let i = 1; i < array.length; i++){
+            result = func(result, array[i], i, array)
+        }
+    }
+    else{
+        result = seed; 
+        //iteratre through array
+        for (let i = 0; i < array.length; i++){
+            //reassign result to the result of invoking callback function
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result
+}
 
 /** _.extend
+ * use ... method
 * Arguments:
 *   1) An Object
 *   2) An Object
