@@ -4,6 +4,7 @@
 
 var customers = require('./data/customers.json');
 var _ = require('underbar');
+const object = require('underbar/object');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -129,7 +130,7 @@ let match = {};
 for (let i = 0; i < array.length; i++){
     if (array[i].name === customer){
         match = array[i];
-        // break gets the function out of the for loop
+        // break gets the function out of the for loop when the name is found
         break;
     }
 }
@@ -141,12 +142,69 @@ return _.reduce(match.friends, function(seed, current){
     return seed
 },0)
 };
+ // find the customers names that have a given customers name in their firends list
+var friendsCount = function(array, name){
+    // empty array to put the output into
+let count = []
+// iterate over the array to get the obj
+for( let i = 0; i < array.length; i++){
+    // iterate through the friends array within the object with nested for loop
+    for( let j = 0; j < array[i].friends.length; j++){
+        //conditional to check if array contains name
+        if(array[i].friends[j].name === name){
+            // pushes the name into count
+            count.push(array[i].name)
+        }
+    }
+}
+//returns the new array
+return count
+};
+// find the three most common tags among all customers associated tags
+var topThreeTags = function(array){
+// pluck the tags out of object
+let tags = _.pluck(array, "tags");
+ // join the sub arrays into a string seperated with comma
+let joined = tags.join();
+//split the joined into an array at each ,
+let split = joined.split(",");
+// empty object to put the keys in
+ let count = {};
+ // create a key for every tag  matching its frequency
+ _.filter(split, function(element){
+    if(count.hasOwnProperty(element)===  false){
+        count[element] = 0;
+    }
+    return count[element]++
+ });
+  // while loop to remove keys
+ while (Object.keys(count).length > 3){
+    for (let key in count){
+        count[key]--;
+        // removes key with a value less than 1
+        if(count[key] < 1){
+            delete count[key]
+        }
+    }
+ }
+ return Object.keys(count)
+};
 
-var friendsCount;
-
-var topThreeTags;
-
-var genderCount;
+var genderCount = function(array){
+    // create a 3 keyed object to put the values into
+    let genders = {male: 0, female:0, ["non-binary"]: 0};
+    // value to filter the male values of objects in an array
+    let males = array.filter(element => element.gender === "male");
+    // value to filter the female values of objects in an array
+    let females = array.filter(element => element.gender === "female");
+    // value to filter the non binary values of objects in an array
+    let nb = array.filter(element => element.gender === "non-binary" );
+    // pushing each values length into the genders object
+    genders.male = males.length
+    genders.female = females.length;
+    genders["non-binary"] = nb.length
+    return genders
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
