@@ -118,10 +118,28 @@ if(obj.name[0].toUpperCase()=== letter.toUpperCase()){
 //returns seed value as total number of words starting with first letter
 return seed;
 }, 0);
-};
-
+}; 
+// i want to find out how many friends a customer has that start with a given letter
+// iterate through customer to find given customer
+// do something simular to last problem
 var friendFirstLetterCount = function(array, customer, letter){
-    
+// make empty array
+let match = {};
+// iterate through array to find customer name
+for (let i = 0; i < array.length; i++){
+    if (array[i].name === customer){
+        match = array[i];
+        // break gets the function out of the for loop
+        break;
+    }
+}
+// reduce to count the number of hits when you put letter in 
+return _.reduce(match.friends, function(seed, current){
+    if (current.name[0].toLowerCase() === letter.toLowerCase()){
+        seed++;
+    }
+    return seed
+},0)
 };
 
 var friendsCount;
