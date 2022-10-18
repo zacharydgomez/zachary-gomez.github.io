@@ -86,17 +86,43 @@ var youngestCustomer = function(array){
 };
 
 var averageBalance = function(array){
-    for(let i = 0; i < array.length; i++){
-   let array1 = array[i].balance.replace(/[$,]/g,"")
-    let avg = _.reduce(array1, function(acc ,current){}, 0) / array1.length
-    return avg
+    // empty number to put result into
+   let avg = 0; 
+   // reduce to loop through array and add up the balances
+     _.reduce(array, function(acc ,current, i){
+        
+let amt = current.balance;
+// parseint to parse through a string arugment and return an interger
+// using a regex method to replace all strings with integers
+avg += parseInt(amt.replace(/[^\w\s]/g, ''), 10) / 100;
 
-    } 
+    }, 0);
+    let result = avg / array.length;
+
+    return result
+
+     
 }; //regex -> searches for patterns in a string .replaceAll(?, "") method // lt newString = blanace.replace(/[$,]/g,"");
 
-var firstLetterCount;
+// i want to input a letter and have the function count how many names in an array will start with that letter
+// case insensitive .touppercase
+var firstLetterCount = function(array, letter){
+     //reduce the array to iterate through the array
+     
+return _.reduce(array, function(seed, obj){
+    // checks the first letter of the name value against the letter input to the function
+if(obj.name[0].toUpperCase()=== letter.toUpperCase()){
+    // if true adds 1 to seed
+    seed += 1;
+}
+//returns seed value as total number of words starting with first letter
+return seed;
+}, 0);
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    
+};
 
 var friendsCount;
 

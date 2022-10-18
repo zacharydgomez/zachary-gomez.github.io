@@ -66,8 +66,12 @@ if (x === 1) {
 var sumBelow = function(n) {
   //base
  if( n === 0){ return n}
+ if (n === -9999){return n}
+ 
   //recursion
-  return n + sumBelow(n -1)
+  return n - 1 + sumBelow(n -1)
+
+
 };
 
 // 6. Get the integers in range (x, y).
