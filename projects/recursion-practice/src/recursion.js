@@ -160,12 +160,42 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  //base
+if(n === 2){
+  return false
+}
+if(n === 1){
+  return true
+}
+  //recursion
+  return modulo (x /y)
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x, y, output = 0) {
+  if( y === 0 ){
+    return output
+  }
+  
+  if (y > 0 && x > 0){ 
+    output += x
+    return multiply(x, y-1, output)
+  }
+  if ( y > 0 && x < 0){
+    output += x
+    return multiply(x, y-1, output)
+    
+  }
+  if ( y < 0 && x < 0){ 
+    output -= x
+    return multiply(x, y+1, output)}
+  if ( y < 0 && x > 0){ 
+    output -= x
+    return multiply(x, y+1, output)
+  } 
+  return output
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -187,15 +217,41 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  //base
+// if statement to check the length of the two strings
+if (str1.length === 0 && str2.length === 0){
+  return true}
+  //recursion
+  // checkign if the values are the same
+  if(str1.charAt(1)===str2.charAt(1)){
+    // returning a substring to check again
+return compareStr(str1.substring(1), str2.substring(1))}
+return false
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
-};
+var createArray = function(str, array = []){
+  
+    //returnvar createArray = function(str, array = []){
+    // base
+  if(str.length === 0){
+    return array
+  }
+    //return
+  
+    array.push(str.charAt(0))
+    return createArray(str.substring(1), array)
+  };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output = []) {
+  //base
+if(array.length === 0){
+  return output}
+  //recursion
+  output = array.pop()
+  reverseArr(array.slice(array.length -1), output)
 };
 
 // 18. Create a new array with a given value and length.
