@@ -245,25 +245,39 @@ var createArray = function(str, array = []){
   };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array, output = []) {
+var reverseArr = function (arr, output = []) {
   //base
-if(array.length === 0){
+if(arr.length === 0){
   return output}
   //recursion
-  output = array.pop()
-  reverseArr(array.slice(array.length -1), output)
+  
+  return  [arr.pop()].concat(reverseArr(arr))
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  //base
+  if(length === 0){
+    return []
+    
+  }
+  //recursion
+  return buildList(value, length - 1).concat([value])
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, output = 0) {
+  //base
+if(array.length === 0){
+return output
+}
+  // recursion
+  if(array.length - 1 === value)
+return [array.pop()].countOccurrence(array, value)
 };
 
 // 20. Write a recursive version of map.
