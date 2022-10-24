@@ -13,7 +13,10 @@
 
   /**
    * 
-   * //Summary//
+   * //Summary// 
+   * Operators is how data connects to each other in Javascript. 
+   *  Operators are special symbols used to perform operations on operands.
+   *  Operands are values and variables
    * 
   * //Assignment operators//
   * 
@@ -21,12 +24,33 @@
   * 
   * !!Examples!!
   * assignment =
+  * Assigns the operand on the left the value of the right operand
+  *  x = "dog" ; x is now assigned the value of "dog"
+  * 
   * addition assignment+=
+  *  assigns the value of the right operand plus the left operand to the left operand
+  *  x += 4; the value of x is now x + 4
+  * 
   * subtraction assignment-=
+  *  assigns the value of the right operand minus the left operand to the left operand
+  *  x -= 4; the value of x is now x - 4
+  * 
   * multiplication assignment*=
+  *  assigns the value of the right operand multipled to the left operand to the left operand
+  *  x *= 4; now the value of x is x * 4
+  * 
   * division assignment/=
-  *remainder assignment %=
+  *  assigns the value of the right operand divided to the left operand to the left operand
+  *  x /= 4; now the value of x is x / 4
+  * remainder assignment %=
+  *   assigns the value of the left operand to the remainder of the left operand divided by the right operand.
+  *  let x = 3
+  *  x %= 2; x is now assigned to 1
+  *  
   * exponentiation assigment **=
+  *  assigns the value of the left operand multipled by itself by the value of the right operand
+  *  x **= 4; now the value of x is x*x*x*x
+  * 
   * 
   * 
   * //Comparison operators//
@@ -150,6 +174,7 @@
   * //Conditional (ternary) operator//
   *  The only operator in Javascript that takes three operands. The operator cna have one of two values based on a condition.
   *  If the condition is true then the left variable will assigned and if otherwise it will assign the right variable
+  * 
   *   !!Example!!
   * const onfire = heat >= 600 ? 'fire' : 'not on fire'
   * if hea is great than 600 onfire would be assigned fire. Otherwise it would assign 'not on fire'
