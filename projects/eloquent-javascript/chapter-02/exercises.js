@@ -3,15 +3,35 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-
+function triangles(num) {
+  // for loop that adds "#" to i each time it loops
+  // set the parameter to the limit in the conditional part
+for(let i = "#"; i.length <= num; i += "#"){
+  console.log(i)
+}
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  // for loop to go 1-15
+  for(let i = 1; i < 16; i++){
+    // if statement for fizz
+    if(i%3 === 0 && i%5 !== 0){
+     console.log("fizz")}
+     // if statement for buzz
+    if ( i%5 === 0 && i%3 !== 0){
+        console.log("buzz")}
+        // if statement for combined
+     if ( i%3 === 0 && i%5 === 0){
+       console.log("fizzbuzz")}
+       // if statement for all the other numbers
+       if ( i%3 !== 0 && i%5 !== 0){
+         console.log(i)
+       }
+    
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
