@@ -2,23 +2,66 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(start, end, step) {
+  //empty arr
+  let arr = []
+// if step is positive
+if( step > 0){
+  while( start <= end){
+ arr.push(start)
+ start += step
+}
+}
+//if step is negative
+if(step < 0){
+  while(start >= end){
+    arr.push(start)
+    start += step
+  }
+  
+}
+//if there is no step and the start and end are the same
+if(!step && start === end){
+  return arr
+}
+// if there is no step
+if( !step){
+  while (start <= end){
+    arr.push(start)
+    start++
+  }
+  
+}
+return arr
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(arr) {
+  // empty variable for output
+  let output = 0
+  // loop through array
+  for(let i = 0; i < arr.length; i++){
+    // adding indexes together in output
+output += arr[i]
+  }
+  //returning the output
+return output
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(arr) {
+  let rev = [];
+  // reverse loop
+  for(let i = arr.length - 1; i >= 0; i--){
+    rev.push(arr[i]);
+  }
+  return rev;
 
 }
 
@@ -26,8 +69,17 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(arr) {
+  
+  for(let i = arr.length -1; i >= 0; i--){
+    //pushing the reversed array into the array
+    arr.push(arr[i])
+    
+  }
+  //splicing off the first half of the array
+  arr.splice(0, (arr.length) /2)
+//returning the array
+return arr
 }
 
 ////////////////////////////////////////////////////////////////////////////////
