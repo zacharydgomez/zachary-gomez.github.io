@@ -15,7 +15,19 @@ function min(num1, num2) {
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
+function isEven(num) {
+  //base
+if( num === 0){
+  return true
+}
+if(num === 1){
+  return false
+}
+  //recursion
+  // takes a negative and turns it into a positive
+  if(num < 0){return isEven(num * -1)}
+  // subtraction from two each time to see if it will land on 1 or 0
+if( num > 0){ return isEven(num - 2)}
 
 }
 
@@ -23,16 +35,31 @@ function isEven() {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
-
+function countChars(str, ltr) {
+  //empty variable for coutning my ltrs
+let count = 0
+//loop to iterate through the string
+for(let i = 0; i< str.length; i++){
+  // adds one for each letter found
+  if(str[i] === ltr){count ++}
+}
+//returns the count
+return count
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(str) {
+  //empty variable to count my B's
+  let count = 0
+  //for loop to iterate through string
+for( let i =0; i < str.length; i++){
+  // if statement to increase count each time it finds b
+  if (str[i] === "B"){count++}
+}
+return count
 }
 
 ////////////////////////////////////////////////////////////////////////////////
