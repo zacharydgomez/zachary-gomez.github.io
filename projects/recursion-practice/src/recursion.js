@@ -144,13 +144,22 @@ var reverse = function(string, output = "") {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  let str = string.toLowerCase().split(" ").join("");
   //base
-  if(string.length === 1) {return true};
+  if(str.length === 1){
+    return true
+  }
+  else if(str.length === 2){ return str[0]=== str[1]}
+  
 
-    if(string.length === 2) {return string[0] === string[1]};
+    
     //recursion
-    if(string[0] === string.slice(-1)) {return palindrome(string.slice(1,-1))}
-    return false;
+    // if the first index and the element are the same we return
+    else if(str[0] === str.slice(-1)){
+      return palindrome(string.slice(1,-1))
+    }
+    // returns false if none of these other statements work
+     return false
   
 };
 
@@ -272,17 +281,30 @@ var buildList = function(value, length) {
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value, output = 0) {
   //base
+  
 if(array.length === 0){
 return output
 }
   // recursion
-  if(array.length - 1 === value)
-return [array.pop()].countOccurrence(array, value)
-};
+  if(array.length  > 0 && array[0] === value){output++
+return countOccurrence(array.slice(1), value) + output}
+else{return countOccurrence(array.slice(1),value)+ output}
 
+}
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  //base
+  if(array.length === 0){
+    return array;
+  }
+
+  //recursion
+   else if (array.length > 0){
+     //slices 1 off rmap each recursion
+     
+    return rMap(array.slice(0,-1), callback).concat(callback(array.length));
+  }
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -318,17 +340,49 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  // base
+  if(n === 0){return n}
+  //recursive
+ else if(n === 1){
+  return nthFibo(n -1) +1}
+  // for nul and negative
+ else if(n < 0){
+  return null}
+ else if(n > 1){
+  return nthFibo(n-1) + nthFibo(n-2)
+}
+  
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(input) {
+  //base
+  if(input.length === 0){
+    return input
+  }
+  //recursion
+ else if (input.length > 0){
+    return capitalizeWords(input.slice(0,-1)).concat(input[input.length -1].toUpperCase());
+  }
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
 var capitalizeFirst = function(array) {
+  // let x be array.length to save some typing
+  let x = array.length
+  //base
+  if(x === 0){
+    return array
+  }
+  //recursion
+  else if(x > 0){
+    
+    return capitalizeFirst(array.slice(0,-1)).concat(array[x-1][0].toUpperCase()+ array[x -1].substring(1,array[x -1].length))
+  }
+
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
