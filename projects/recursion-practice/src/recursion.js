@@ -379,7 +379,7 @@ var capitalizeFirst = function(array) {
   }
   //recursion
   else if(x > 0){
-    
+
     return capitalizeFirst(array.slice(0,-1)).concat(array[x-1][0].toUpperCase()+ array[x -1].substring(1,array[x -1].length))
   }
 
@@ -404,7 +404,20 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+  //base
+  if(str.length === 0){
+    return obj;
+  }
+  //recursion
+  else if(str.length > 0 && obj[str[0]]!== undefined){
+    obj[str[0]] += 1
+    return letterTally(str.slice(1), obj)
+  }
+  else if(str.length > 0 && obj[str[0]] === undefined){
+    obj[str[0]] =1
+    return letterTally(str.slice(1), obj)
+  }
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -412,7 +425,18 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, output = []) {
+  if (list.length === 0){
+    return output
+  }
+  else if(list.length === 1){
+    output.push(list[0]);
+    return output
+  }
+  else if(list[0] !== list[1]){
+    output.push(list[0]);
+  }
+  return compress(list.slice(1), output)
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
