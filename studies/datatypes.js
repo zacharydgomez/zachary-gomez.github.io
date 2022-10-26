@@ -32,7 +32,13 @@
  * 
  *  Number can also include special values such as :  
  *   NaN: a typeof number that represents Not-A-Number. Represents when there is no numerical value
- *  Infinity and negative infinity
+ *  
+ * Infinity and negative Infinity
+ * 
+ *  Infinity is defined in javascript as a global object. A number reaches infinity when it 
+ *  exceeds the upper limit for a number, 1.797693134862315E+308. 
+ *  -Infinity is reached when a number reaches a lower limit of -1.797693134862316E+308 
+ *  These values can be usefull or initializing computations involving comparisons of numbers.
  * 
  * 
  *      //String//
