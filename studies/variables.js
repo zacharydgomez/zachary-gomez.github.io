@@ -84,6 +84,44 @@
  * var declations are hoisted to the top but are not initilized.
  * 
  * !!Example!!
+ *  In this example using var, when console.log is used the output variable returns as undefined.
+ *   function doSomething(num){
+ * console.log( output)
+ *  if( num >10){
+ *    var output = num
+ *  }
+ *  return output
+ *  }
+ *
+ *  console.log(doSomething(11))
+ *
+ * In this example using let, when using console.log an error will be created because 
+ * let is hoisted to the top of the block scope it is found in within the if statement.
+ * 
+ * function doSomething(num){
+ * console.log( output)
+ *  if( num >10){
+ *   let output = num
+ *  }
+ *  return output
+ *  }
+ *
+ * console.log(doSomething(11))
+ * 
+ * The same result happens when you declare the variable using the const keyword happens
+ * function doSomething(num){
+ *  console.log( output)
+ * if( num >10){
+ *    const output = num
+ * }
+ *  return output
+ * }
+ *
+ *   console.log(doSomething(11))
+ *
+ * 
+ * 
+ * !!Example!!
  * console.log(bigDog) => prints undefined
  * var bigDog = "koji"
  * console.log(bigDog) => prints "koji"
