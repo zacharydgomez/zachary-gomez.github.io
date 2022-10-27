@@ -449,6 +449,16 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  //base
+  if(array.length === 0){
+    return array
+  }
+  //recursion
+  if(minimizeZeroes(array.slice(1))[0]=== 0 && array[0]=== 0){
+    return minimizeZeroes(array.slice(1));
+  } else{
+    return [array[0]].concat(minimizeZeroes(array.slice(1)))
+  }
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -456,12 +466,45 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
+  //base
+  if (array.length === 0){
+    return array;
+  }
+  if(array[0]< 0){
+    array[0] = -array[0]
+  }
+  if(array[1]> 0){
+    array[1] = -array[1]
+  }
+  //recursive
+  return [array[0], array[1]].concat(alternateSign(array.slice(2)))
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  //base
+  if(str.length === 1 && str === ""){
+    return str.slice
+  }
+  if(!str){
+    return ""
+  }
+  // create a array to get the string values of a number
+  let numbers = "zero one two three four five six seven eigh nine ten".split(" ")
+  //empty array for putting the number string into
+  var nums = {};
+  //loop to iterate over numbers
+  for(let i = 0; i < numbers.length; i++){
+    nums[i] = numbers[i]
+  }
+  let char = str[0]
+  
+  char = nums[char] ? nums[char] + '' : char;
+
+  //recursion
+  return char + numToText(str.slice(1))
 };
 
 // *** EXTRA CREDIT ***
