@@ -42,6 +42,7 @@
  *  //for...in statement//
  *   When iterating through an object, a for...in statement iterates through the enumerable properites found in the keys of the object.
  *   The loop executes once through each property of the object.
+ * 
  *      !!Example!!
  *  let kitchen = { size : "big", heating : "gas", color: "yellow"};
  * for(let prop in kitchen){
@@ -62,6 +63,7 @@
  *  //while statement//
  *  While statements executes its code as long as a specific condition evaluates to true.
  * The condition is tested before the statement in the loop is executed. It loops until the condition proves false.
+ * 
  *     !!Example!!
  *  let x = 5
  *  let y = 10
