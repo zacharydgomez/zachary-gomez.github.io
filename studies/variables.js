@@ -79,6 +79,22 @@
  * The const and let keyword can also be included in the block scope of a function. 
  * This means that when these keywords are declared within {} they are only avaible to that block.
  * 
+ * !!Example!!
+ * 
+ * // in the function barkAt a global variable is being refernced from the block scope
+ * var bark = "roof"
+ * function barkAt(string){
+ * console.log(string + " " + bark )}
+ * barkAt("Koji says")
+ * 
+ * // in this function meow is defined in the function scope and is not accessable in the global scope
+ * function meowAt(string){
+ * var meow = "meow"
+ * console.log(string + " " + meow)}
+ * meowAt("Sart says")
+ * 
+ *console.log(meow)
+ * 
  * //Hosting//
  *  Hoisting is the default behavior in Javascript to move declarations to the top of the current scope.
  * var declations are hoisted to the top but are not initilized.
