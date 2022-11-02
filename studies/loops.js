@@ -39,6 +39,11 @@
  *  arr = [1,2,3,4,5,6]
  *  for ( let i = 0; i < arr.length; i++){ arr[i] += 5}; // returns the array altered as arr = [6,7,8,9,10,11]
  * 
+ * to iterate through a array backwards you would want to start at the array length -1 and decriment
+ * let arr = [1,2,3,4,5,6]
+ * for(let i = arr.length -1; i >= 0;i--){
+ * console.log(arr[i]) // this would iterate through the array backwards
+ * }
  *  //for...in statement//
  *   When iterating through an object, a for...in statement iterates through the enumerable properites found in the keys of the object.
  *   The loop executes once through each property of the object.
