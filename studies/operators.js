@@ -116,6 +116,28 @@
   * Javascript also have other arithmetic operators that need explination.
   * 
   * !!Examples!!
+  * 
+  * addition +
+  * adds two numbers together
+  *  let x = 60 + 70 //x would equal 130
+  * 
+  * subtraction
+  * subtracts two numbers
+  * let x = 70 - 60 // x would equal 10
+  * 
+  * multiplication
+  * multiplies two numbers together
+  * let x = 7 * 10 // x would equal 70
+  * 
+  * exponentiation
+  * expoential 
+  * let x 2**3 // x would equal 8
+  * 
+  * division
+  *  let x = 6 / 2 // x would equal 3
+  * 
+  * 
+  * 
   * remainder % (mondulo)
   * returns the integer remained of two operands divided
   *  20 % 6 returns 2
