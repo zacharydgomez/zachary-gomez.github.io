@@ -44,6 +44,10 @@
  * //Function Parameters//
  *  Parameters are the names listed in the function definition that arguments are passed into.
  * Parameters are just names while arguments are the actual values.
+ * !!example!!
+ * function subtract(num1, num2){ // num1 and num2 are parameters in the function
+ * return num1 - num2}
+ * subtract(4, 2) //when calling the function you pass arguments into the function
  * 
  * //Calling Functions//
  *  Once a function has been defined to actually execute the actions indiciated in the function it must be called.
@@ -102,13 +106,18 @@
  * Closure gives acces to an outer functions scope to an inner function.
  * 
  *  !!Example!!
- * // This function has an inner function that accesses the str parameter from the above scope.
+ * // This function has an inner function that accesses the x parameter from the higher scope.
  * 
- *  function shout(str){
- * let yell = function(){
- *  return str;} 
- * return yell;
+ *   function subtraction(x){
+ * return function(y){
+ * return x - y // x is being accessed from the outer scope
+ * };
  * }
+ * let sub5 = subtraction(5) //sets the value of x
+ * let sub10 = subtraction(10)
+ * console.log(sub5(2))  //console logs 3
+ * console.log(sub10(2)) //console logs 8
+ * 
  * 
  * //Arrow functions//
  * Arrow functions are another way to define a function.  Arrow functions provide a shortened alternative to the other declerations.
